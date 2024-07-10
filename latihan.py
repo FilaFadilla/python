@@ -21,6 +21,14 @@ total_pete_goreng = 0
 total_plecing_kangkung = 0
 total_sambal_dadak = 0
 
+
+qty_ayam_betutu = 0
+qty_gurame_terbang = 0
+qty_lalapan_mentah = 0
+qty_pete_goreng = 0
+qty_plecing_kangkung = 0
+qty_sambal_dadak = 0
+
 print('-'*20)
 print('your menu')
 print('-'*20)
@@ -34,6 +42,8 @@ while True:
         print('-'*20)
         print(f'{quantity} ayam betutu {total_ayam_betutu:,}')
         print('-'*20)
+        qty_ayam_betutu += quantity
+
         
     elif user == '2':
         quantity = int(input('Berapa: '))
@@ -41,6 +51,8 @@ while True:
         print('-'*20)
         print(f'{quantity} gurame terbang {total_gurame_terbang:,}')
         print('-'*20)
+        qty_gurame_terbang += quantity
+        
         
     elif user == '3':
         quantity = int(input('Berapa: '))
@@ -48,6 +60,8 @@ while True:
         print('-'*20)
         print(f'{quantity} lalapan mentah {total_lalapan_mentah:,}')
         print('-'*20)
+        qty_lalapan_mentah += quantity
+        
     
     elif user == '4':
         quantity = int(input('Berapa: '))
@@ -55,6 +69,7 @@ while True:
         print('-'*20)
         print(f'{quantity} pete goreng {total_pete_goreng:,}')
         print('-'*20)
+        qty_pete_goreng += quantity
 
     elif user == '5':
         quantity = int(input('Berapa: '))
@@ -62,6 +77,7 @@ while True:
         print('-'*20)
         print(f'{quantity} plecing kangkung {total_plecing_kangkung:,}')
         print('-'*20)
+        qty_plecing_kangkung += quantity
 
     elif user == '6':
         quantity = int(input('Berapa: '))
@@ -69,6 +85,7 @@ while True:
         print('-'*20)
         print(f'{quantity} sambal dadak {total_sambal_dadak:,}')
         print('-'*20)
+        qty_sambal_dadak += quantity
 
     elif user.lower() == 's':
         print('Selesai')
@@ -89,14 +106,42 @@ diskon = total * 0.3
 
 ultah = input('anda akan mendapatkan voucher 30%\njika anda atau rekan anda berulang tahun\napakah ada yang berulang tahun?[y/n]:')
 
+
 if ultah == 'y':
     print('-'*20)
     print(f'SUBTOTAL {diskon:,}')
+    print('-'*20)
 
 elif ultah == 'n':
+    print('-'*20)
     print(f'SUBTOTAL : {total:,}')
+    print('-'*20)
 
 else:
     print('terima kasih')
 
+bill = input('ingin cetak bill?[y/n]: ')
 
+if bill.lower() == 'y':
+    print('='*10, 'BILL PEMBAYARAN', '='*10)
+    if total_ayam_betutu > 0:
+        print(f'{qty_ayam_betutu} ayam betutu       : {total_ayam_betutu:,}')
+    if total_gurame_terbang > 0:
+        print(f'{qty_gurame_terbang} gurame terbang    : {total_gurame_terbang:,}')
+    if total_lalapan_mentah > 0:
+        print(f'{qty_lalapan_mentah} lalapan mentah    : {total_lalapan_mentah:,}')
+    if total_pete_goreng > 0:
+        print(f'{qty_pete_goreng} pete goreng       : {total_pete_goreng:,}')
+    if total_plecing_kangkung > 0:
+        print(f'{qty_plecing_kangkung} plecing kangkung  : {total_plecing_kangkung:,}')
+    if total_sambal_dadak > 0:
+        print(f'{qty_sambal_dadak} sambal dadak      : {total_sambal_dadak:,}')
+    print('-'*20)
+    print(f'TOTAL             : {total:,}')
+    if ultah.lower() == 'y':
+        print(f'DISKON 30%        : {diskon:,}')
+        print('-'*20)
+        print(f'SUBTOTAL          : {total:,}')
+    print('='*10, 'TERIMA KASIH', '='*10)
+else:
+    print('Terima kasih telah memesan.')
